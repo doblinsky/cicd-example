@@ -3,7 +3,25 @@ on: push
 
 jobs:
     greeting:
-        runs-on: mac
+        runs-on: ubuntu-latest
         steps:
             - name: Greeting!
-              run: echo hello world 
+              run: echo hello world
+        
+    test-python-3-12:
+        name: Check Python 3.12 on Ubuntu
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+
+
+            - uses: actions/setup-python@v4
+              with :
+                python-version: "3.12"
+
+            - name: Install Package
+              run: python -m pip isntall -e .[test]
+
+
+            - name: Test package
+              run: python -m pytest

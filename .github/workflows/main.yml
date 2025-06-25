@@ -1,0 +1,9 @@
+name: Hellow World
+on: push
+
+jobs:
+    greeting:
+        runs-on: mac
+        steps:
+            - name: Greeting!
+              run: echo hello world 
